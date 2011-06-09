@@ -1,0 +1,12 @@
+== jkdl-svg ==
+
+jkdl-svg is a FOSS implementation of the "Depixelizing Pixel Art" algorithm from Johannes
+Kopf & Dani Lischinski (http://research.microsoft.com/en-us/um/people/kopf/pixelart).
+
+The primary goal is to provide a library and a stand-alone executable who takes an image
+and outputs a vectorized version in SVG format. These SVG files can then be openened in 
+a SVG editor (i.e. Inkscape) to make final adjustements.
+
+The library is written with flexibility in mind, so that faster and maybe less optimized
+results can be displayed in real-time for integration in various console emulators.
+
