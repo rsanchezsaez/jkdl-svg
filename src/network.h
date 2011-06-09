@@ -18,8 +18,8 @@ public:
     int gridWidth();
     int gridHeight();
 
-    std::vector<Vertex*> vertexes();
-    std::vector<Edge*> edges();
+    std::vector<Vertex*> *vertexes();
+    std::vector<Edge*> *edges();
 
     void addVertex(Vertex *v);
     void addVertex(Vertex *v, int x, int y);

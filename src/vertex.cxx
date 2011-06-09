@@ -49,7 +49,7 @@ void Vertex::disconnectWith(Vertex *other) {
     throw unimplemented();
 }
 
-std::vector<Edge*> Vertex::connectedEdges() {
+std::vector<Edge*> *Vertex::connectedEdges() {
     throw unimplemented();
 }
 

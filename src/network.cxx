@@ -26,11 +26,11 @@ int Network::gridHeight() {
     throw unimplemented();
 }
 
-std::vector<Vertex*> Network::vertexes() {
+std::vector<Vertex*> *Network::vertexes() {
     throw unimplemented();
 }
 
-std::vector<Edge*> Network::edges() {
+std::vector<Edge*> *Network::edges() {
     throw unimplemented();
 }
 

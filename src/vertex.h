@@ -29,7 +29,7 @@ public:
     void connectWith(Vertex *other);
     void disconnectWith(Vertex *other);
 
-    std::vector<Edge*> connectedEdges();
+    std::vector<Edge*> *connectedEdges();
 
     Network *network();
 
