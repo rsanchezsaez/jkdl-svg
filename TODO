@@ -1,0 +1,38 @@
+This file is not only a TODO list but also a brief description of the algorithm and the 
+global progress of the implementation.
+
+Vectorization global process:
+
+1) Load raster image from file (loader.cxx)
+[  ] Add PNG support for loading a network from raster data
+
+2) Build the Visual Feature Network and remove connections
+[  ] Connection removal on a color basis
+[  ] Add "Island" score
+[  ] Add "Curve" score
+[  ] Add "Sparse" score
+[  ] Removal on a score basis
+
+3) Build the Voronoi diagram
+[  ] Implementation of Voronoi partitionning algorithm
+[  ] Simplification of the Voronoi partition
+
+4) Resolve T-Junctions
+[  ] Support for T-Junctions
+
+5) Extract splines
+[  ] Generate spline data
+
+6) Optimize splines
+[  ] Spline optimization
+
+7) Resolve corner cases
+[  ] Case detection module
+[  ] Replacement of faulty zones
+[  ] Improve edge-case heuristics
+
+8) Render as SVG
+[  ] Translate into a SVG-compatible model
+[  ] Output SVG
+
+
