@@ -1,5 +1,8 @@
 namespace jkdl {
 
+class Network;
+class Vertex;
+
 class Edge {
     friend class Network;
     friend class Vertex;

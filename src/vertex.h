@@ -1,4 +1,9 @@
+#include <vector>
+
 namespace jkdl {
+
+class Network;
+class Edge;
 
 class Vertex {
     friend class Network;
@@ -39,7 +44,7 @@ private:
     double _x, _y;
     int _color;
     std::vector<Edge*> _edges;
-    Network *network;
+    Network *_network;
 };
 
 } // jkdl

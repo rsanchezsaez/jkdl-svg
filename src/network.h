@@ -1,4 +1,9 @@
+#include <vector>
+
 namespace jkdl {
+
+class Vertex;
+class Edge;
 
 class Network {
     friend class Vertex;
