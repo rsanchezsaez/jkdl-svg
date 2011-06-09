@@ -35,6 +35,7 @@ private:
     std::vector<Vertex*> _vertexes;
     std::vector<Edge*> _edges;
     Vertex ***_grid;
+    int _gridWidth, _gridHeight;
 };
 
 } // jkdl

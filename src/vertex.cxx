@@ -1,44 +1,51 @@
 #include "vertex.h"
+#include "network.h"
 
 #include "unimplemented.h"
 
 using namespace jkdl;
 
-Vertex::Vertex() {
+Vertex::Vertex() :
+    _network(0) {
 }
 
-Vertex::Vertex(double x, double y) {
+Vertex::Vertex(double x, double y) :
+    _network(0) {
+    setX(x);
+    setY(y);
 }
 
 Vertex::~Vertex() {
+    remove();
 }
 
 double Vertex::x() const {
-    throw unimplemented();
+    return _x;
 }
 
 void Vertex::setX(double x) {
-    throw unimplemented();
+    _x = x;
 }
 
 double Vertex::y() const {
-    throw unimplemented();
+    return _y;
 }
 
 void Vertex::setY(double y) {
-    throw unimplemented();
+    _y = y;
 }
 
 int Vertex::color() const {
-    throw unimplemented();
+    return _color;
 }
 
 void Vertex::setColor(int color) {
-    throw unimplemented();
+    _color = color;
 }
 
 void Vertex::move(double x, double y) {
-    throw unimplemented();
+    setX(x);
+    setY(y);
 }
 
 void Vertex::connectWith(Vertex *other) {
@@ -54,15 +61,16 @@ std::vector<Edge*> *Vertex::connectedEdges() {
 }
 
 Network *Vertex::network() {
-    throw unimplemented();
+    return _network;
 }
 
 void Vertex::remove() {
-    throw unimplemented();
+    if(_network == 0) return;
+    _network->unregisterVertex(this);
 }
 
 void Vertex::setNetwork(Network *network) {
-    throw unimplemented();
+    _network = network;
 }
 
 void Vertex::addEdge(Edge *egde) {
