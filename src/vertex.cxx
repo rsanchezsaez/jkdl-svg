@@ -48,17 +48,11 @@ void Vertex::move(double x, double y) {
     setY(y);
 }
 
-void Vertex::connectWith(Vertex *other) {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Vertex::connectWith(Vertex *other))
 
-void Vertex::disconnectWith(Vertex *other) {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Vertex::disconnectWith(Vertex *other))
 
-std::vector<Edge*> *Vertex::connectedEdges() {
-    throw unimplemented();
-}
+UNIMPLEMENTED(std::vector<Edge*> *Vertex::connectedEdges())
 
 Network *Vertex::network() {
     return _network;
@@ -73,12 +67,8 @@ void Vertex::setNetwork(Network *network) {
     _network = network;
 }
 
-void Vertex::addEdge(Edge *egde) {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Vertex::addEdge(Edge *egde)) 
 
-void Vertex::removeEdge(Edge *edge) {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Vertex::removeEdge(Edge *edge)) 
 
 

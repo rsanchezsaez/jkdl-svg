@@ -4,7 +4,5 @@
 
 using namespace jkdl;
 
-void Loader::loadPng(Network *network, std::string &filename) {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Loader::loadPng(Network *network, std::string &filename)) 
 

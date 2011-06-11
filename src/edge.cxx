@@ -10,23 +10,13 @@ Edge::Edge() {
 Edge::~Edge() {
 }
 
-Vertex *Edge::start() {
-    throw unimplemented();
-}
+UNIMPLEMENTED(Vertex *Edge::start())
 
-Vertex *Edge::end() {
-    throw unimplemented();
-}
+UNIMPLEMENTED(Vertex *Edge::end())
 
-Network *Edge::network() {
-    throw unimplemented();
-}
+UNIMPLEMENTED(Network *Edge::network())
 
-void Edge::setNetwork(Network *network) {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Edge::setNetwork(Network *network))
 
-void Edge::remove() {
-    throw unimplemented();
-}
+UNIMPLEMENTED(void Edge::remove())
 
