@@ -10,27 +10,21 @@ Network::Network() :
 }
 
 Network::~Network() {
-    if(_grid != 0) {
-        for(int i=0; i<_gridWidth; i++)
-            delete _grid[i];
-        delete _grid;
-    }
+    if(_grid != 0)
+        delete[] _grid;
 }
 
 void Network::setupGrid(int width, int height) {
-    _grid = new Vertex**[width];
-    for(int i=0; i<width; i++) {
-        _grid[i] = new Vertex*[height];
-        for(int j=0; j<height; j++)
-            _grid[i][j] = 0;
-    }
+    _grid = new Vertex*[width * height];
+    for(int i=0; i<width * height; i++)
+        _grid[i] = 0;
 
     _gridWidth = width;
     _gridHeight = height;
 }
 
 Vertex *Network::gridAt(int x, int y) {
-    return _grid[x][y];
+    return _grid[x + _gridWidth * y];
 }
 
 int Network::gridWidth() {
@@ -56,7 +50,7 @@ void Network::addVertex(Vertex *vertex) {
 
 void Network::addVertex(Vertex *v, int x, int y) {
     addVertex(v);
-    _grid[x][y] = v;
+    _grid[x + _gridWidth * y] = v;
 }
 
 void Network::registerVertex(Vertex *v) {
@@ -73,10 +67,9 @@ void Network::unregisterVertex(Vertex *v) {
             _vertexes.erase(_vertexes.begin() + i);
 
     if(_grid == 0) return;
-    for(int i=0; i<_gridWidth; i++)
-        for(int j=0; j<_gridHeight; j++)
-            if(_grid[i][j] == v)
-                _grid[i][j] = 0;
+    for(int i=0; i<_gridWidth * _gridHeight; i++)
+        if(_grid[i] == v)
+            _grid[i] = 0;
 }
 
 void Network::unregisterEdge(Edge *e) {

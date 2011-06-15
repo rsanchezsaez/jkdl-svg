@@ -1,22 +1,51 @@
 #include "edge.h"
+#include "vertex.h"
 
 #include "unimplemented.h"
 
+#include <vector>
+#include <iostream>
+
 using namespace jkdl;
 
-Edge::Edge() {
-}
+Edge::Edge() : 
+    _start(0),
+    _end(0)
+{   }
 
 Edge::~Edge() {
 }
 
-UNIMPLEMENTED(Vertex *Edge::start())
+Vertex *Edge::start() {
+    return _start;
+}
 
-UNIMPLEMENTED(Vertex *Edge::end())
+Vertex *Edge::end() {
+    return _end;
+}
 
-UNIMPLEMENTED(Network *Edge::network())
+Network *Edge::network() {
+    return _network;
+}
 
-UNIMPLEMENTED(void Edge::setNetwork(Network *network))
+void Edge::setNetwork(Network *network) {
+    _network = network;
+}
 
-UNIMPLEMENTED(void Edge::remove())
+static void removethis(Edge* thisp, Vertex* vertex) {
+    std::vector<Edge*>::iterator iter;
+    std::vector<Edge*> *edges = vertex->connectedEdges();
+    
+    for(iter = edges->begin(); iter != edges->end(); iter++) {
+        if(*iter == thisp) {
+            edges->erase(iter);
+	    return;
+	}
+    }
+}
+
+void Edge::remove() {
+    removethis(this, _start);
+    removethis(this, _end);    
+}
 

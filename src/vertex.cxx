@@ -1,7 +1,10 @@
 #include "vertex.h"
 #include "network.h"
+#include "edge.h"
 
 #include "unimplemented.h"
+
+#include <boost/foreach.hpp>
 
 using namespace jkdl;
 
@@ -48,11 +51,21 @@ void Vertex::move(double x, double y) {
     setY(y);
 }
 
-UNIMPLEMENTED(void Vertex::connectWith(Vertex *other))
+void Vertex::connectWith(Vertex *other) {
+    Edge *edge = new Edge();
+    _network->registerEdge(edge);
+    edge->_start = this;
+    edge->_end = other;
+    _edges.push_back(edge);
+    other->_edges.push_back(edge);
+    other->_network = _network;
+}
 
 UNIMPLEMENTED(void Vertex::disconnectWith(Vertex *other))
 
-UNIMPLEMENTED(std::vector<Edge*> *Vertex::connectedEdges())
+std::vector<Edge*> *Vertex::connectedEdges() {
+    return &_edges;
+}
 
 Network *Vertex::network() {
     return _network;
@@ -60,7 +73,11 @@ Network *Vertex::network() {
 
 void Vertex::remove() {
     if(_network == 0) return;
+    BOOST_FOREACH(Edge* link, _edges) {
+        link->remove();
+    }
     _network->unregisterVertex(this);
+    _network = 0;
 }
 
 void Vertex::setNetwork(Network *network) {
