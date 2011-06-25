@@ -2,12 +2,15 @@ CC=gcc
 CFLAGS=-fpermissive -g -ggdb
 LIBS=-lstdc++
 VALGRIND?=valgrind
+TESTS=$(wildcard *.cxx)
 
-all: geometry.test run
+all: $(TESTS:.cxx=.test) run
 
-geometry.test: geometry.cxx ../src/*.o ../src/*.h
-	$(CC) geometry.cxx -o geometry.test ../src/*.o -I../src/ $(CFLAGS) $(LIBS)
+%.test: %.cxx ../src/*.o ../src/*.h
+	$(CC) $< -o $@ ../src/*.o -I../src/ $(CFLAGS) $(LIBS)
 
-run: geometry.test
-	-$(VALGRIND) ./geometry.test	
+run: $(TESTS:.cxx=.run)
+
+%.run: %.test
+	-$(VALGRIND) ./$<
 

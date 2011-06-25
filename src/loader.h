@@ -6,7 +6,7 @@ class Network;
 
 class Loader {
 public:
-    static void loadPng(Network *network, std::string &filename);
+    static void loadPng(Network *network, const std::string &filename);
 };
 
 } // jkdl

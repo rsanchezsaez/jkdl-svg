@@ -1,6 +1,6 @@
 SOURCES=$(wildcard *.cxx)
 HEADERS=$(wildcard *.h)
-GCC?=gcc
+CPP=clang
 CFLAGS?=-g -ggdb
 RM?=rm
 
@@ -15,7 +15,7 @@ test: objects
 	cd ../tests && $(MAKE) -f Makefile
 
 so: objects
-	$(GCC) *.o -o geometry.so -shared -g -ggdb $(SO_LIBS)
+	$(CPP) *.o -o geometry.so -shared -g -ggdb $(SO_LIBS)
 
 clean:
 	-$(RM) *.o

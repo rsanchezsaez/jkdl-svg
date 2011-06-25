@@ -5,6 +5,8 @@
 #include "network.h"
 #include "vertex.h"
 
+#include <string>
+
 using namespace jkdl;
 
 /**
@@ -20,12 +22,12 @@ using namespace jkdl;
 #define COLOR_CYAN  0x02e3d4
 #define COLOR_BEIGE 0xfce4a0
 
-#define CHECK_COLOR(network, x, y, color) \
-    BOOST_CHECK_EQUAL(network->gridAd(x, y)->getColor(), color)
+#define CHECK_COLOR(network, x, y, clr) \
+    BOOST_CHECK_EQUAL(network->gridAt(x, y)->color(), clr)
 
 BOOST_AUTO_TEST_CASE(load_png_megaman) {
     Network *network = new Network;
-    Loader::loadPng(network, "img/megaman.png");
+    Loader::loadPng(network, std::string("img/megaman.png"));
 
     CHECK_COLOR(network, 0, 0, COLOR_WHITE);
     CHECK_COLOR(network, 8, 11, COLOR_BLACK);
