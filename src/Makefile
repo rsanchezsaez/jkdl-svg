@@ -19,4 +19,5 @@ so: objects
 
 clean:
 	-$(RM) *.o
+	-$(RM) *~
 
