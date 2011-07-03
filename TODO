@@ -4,7 +4,7 @@ global progress of the implementation.
 Vectorization global process:
 
 1) Load raster image from file (loader.cxx)
-[  ] Add PNG support for loading a network from raster data
+[OK] Add PNG support for loading a network from raster data
 
 2) Build the Visual Feature Network and remove connections
 [  ] Connection removal on a color basis
