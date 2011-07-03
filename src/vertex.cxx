@@ -88,4 +88,5 @@ UNIMPLEMENTED(void Vertex::addEdge(Edge *egde))
 
 UNIMPLEMENTED(void Vertex::removeEdge(Edge *edge)) 
 
+UNIMPLEMENTED(bool Vertex::isConnected(const jkdl::Vertex& other))
 

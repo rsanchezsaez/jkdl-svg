@@ -30,6 +30,7 @@ public:
     void disconnectWith(Vertex *other);
 
     std::vector<Edge*> *connectedEdges();
+    bool isConnected(const Vertex& other);
 
     Network *network();
 

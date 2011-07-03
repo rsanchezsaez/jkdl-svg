@@ -23,6 +23,8 @@ public:
 
     void addVertex(Vertex *v);
     void addVertex(Vertex *v, int x, int y);
+    
+    void buildConnections();
 
 protected:
     void registerVertex(Vertex *v);

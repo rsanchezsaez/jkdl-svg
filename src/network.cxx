@@ -1,6 +1,8 @@
 #include "network.h"
 #include "vertex.h"
 
+#include "unimplemented.h"
+
 using namespace jkdl;
 
 Network::Network() :
@@ -77,4 +79,7 @@ void Network::unregisterEdge(Edge *e) {
         if(e == _edges[i])
             _edges.erase(_edges.begin() + i);
 }
+
+UNIMPLEMENTED(void Network::buildConnections());
+
 
