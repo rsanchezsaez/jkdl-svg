@@ -1,5 +1,5 @@
-CC=gcc
-CFLAGS=-fpermissive -g -ggdb
+CC=clang
+CFLAGS=-g -ggdb
 LIBS=-lstdc++ -lfreeimage -lfreeimageplus -lboost_unit_test_framework
 VALGRIND?=valgrind
 TESTS=$(wildcard *.cxx)

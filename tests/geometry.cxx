@@ -47,8 +47,8 @@ BOOST_AUTO_TEST_CASE(network_grid_test) {
 
     BOOST_CHECK_EQUAL(network->gridWidth(), 20);
     BOOST_CHECK_EQUAL(network->gridHeight(), 35);
-    BOOST_CHECK_EQUAL(network->gridAt(0, 0), 0);
-    BOOST_CHECK_EQUAL(network->gridAt(19, 34), 0);
+    BOOST_CHECK_EQUAL(network->gridAt(0, 0), (void*)0);
+    BOOST_CHECK_EQUAL(network->gridAt(19, 34), (void*)0);
 
     Vertex *v1, *v2, *v3;
     network->addVertex(v1 = new Vertex, 5, 10);
@@ -63,9 +63,9 @@ BOOST_AUTO_TEST_CASE(network_grid_test) {
     v2->remove();
     network->gridAt(19, 34)->remove();
 
-    BOOST_CHECK_EQUAL(network->gridAt(5, 10), 0);
-    BOOST_CHECK_EQUAL(network->gridAt(14, 21), 0);
-    BOOST_CHECK_EQUAL(network->gridAt(19, 34), 0);
+    BOOST_CHECK_EQUAL(network->gridAt(5, 10), (void*)0);
+    BOOST_CHECK_EQUAL(network->gridAt(14, 21), (void*)0);
+    BOOST_CHECK_EQUAL(network->gridAt(19, 34), (void*)0);
 
     delete v2;
     delete v3;
@@ -85,7 +85,7 @@ BOOST_AUTO_TEST_CASE(network_addvertex_remove_test) {
     BOOST_CHECK_EQUAL(v2->network(), network);
 
     v1->remove();
-    BOOST_CHECK_EQUAL(v1->network(), 0);
+    BOOST_CHECK_EQUAL(v1->network(), (void*)0);
     BOOST_CHECK_EQUAL(v2->connectedEdges()->size(), 0);
 
     delete v2;
