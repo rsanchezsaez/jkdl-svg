@@ -25,6 +25,7 @@ public:
     void addVertex(Vertex *v, int x, int y);
     
     void buildConnections();
+    void stripCrossingEdges();
 
 protected:
     void registerVertex(Vertex *v);

@@ -119,4 +119,16 @@ void Network::buildConnections() {
     }
 }
 
+/* This method prunes the crossing edges from the VFN. It is a temporary solution used
+ * to move on quickly to the Voronoi diagram generation. It will probably be deleted
+ * later on when scores will be implemented. This is why there are no unit tests.
+ */
+void Network::stripCrossingEdges()
+{
+  for(int x = 0; x < _gridWidth - 1; x++) 
+    for(int y = 0; y < _gridHeight - 1; y++)
+      if(gridAt(x, y)->isConnected(gridAt(x + 1, y + 1)
+	&& gridAt(x + 1, y)->isConnected(gridAt(x, y + 1))))
+	gridAt(x + 1, y)->disconnectWith(gridAt(x, y + 1);
+}
 
