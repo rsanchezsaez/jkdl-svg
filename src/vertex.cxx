@@ -5,6 +5,7 @@
 #include "unimplemented.h"
 
 #include <boost/foreach.hpp>
+#include <boost/assert.hpp>
 
 using namespace jkdl;
 
@@ -51,6 +52,12 @@ void Vertex::move(double x, double y) {
     setY(y);
 }
 
+/* Used for assertions */
+/* TODO: add constness later */
+static bool isStartOrEnd(Vertex& vertex, Edge& edge) {
+  return edge.start() == &vertex || edge.end() == &vertex;
+}
+
 void Vertex::connectWith(Vertex *other) {
     Edge *edge = new Edge();
     _network->registerEdge(edge);
@@ -88,5 +95,19 @@ UNIMPLEMENTED(void Vertex::addEdge(Edge *egde))
 
 UNIMPLEMENTED(void Vertex::removeEdge(Edge *edge)) 
 
-UNIMPLEMENTED(bool Vertex::isConnected(const jkdl::Vertex& other))
+static Vertex& otherFromEdge(Vertex& that, Edge& edge) {
+  if(edge.start() == &that)
+    return *(edge.end());
+  else
+    return *(edge.start());
+}
 
+bool Vertex::isConnected(const jkdl::Vertex& other) {
+  BOOST_FOREACH(Edge* link, _edges) {
+    BOOST_ASSERT(isStartOrEnd(*this, *link));
+    if(&(otherFromEdge(*this, *link)) == &other)
+      return true;
+  }
+  
+  return false;
+}
