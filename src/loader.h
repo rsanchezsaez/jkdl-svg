@@ -4,10 +4,7 @@ namespace jkdl {
 
 class Network;
 
-class Loader {
-public:
-    static void loadPng(Network *network, const std::string &filename);
-};
+void loadImageFromFile(Network &network, const std::string &filename);
 
 } // jkdl
 
