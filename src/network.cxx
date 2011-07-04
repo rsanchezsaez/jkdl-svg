@@ -127,8 +127,8 @@ void Network::stripCrossingEdges()
 {
   for(int x = 0; x < _gridWidth - 1; x++) 
     for(int y = 0; y < _gridHeight - 1; y++)
-      if(gridAt(x, y)->isConnected(gridAt(x + 1, y + 1)
-	&& gridAt(x + 1, y)->isConnected(gridAt(x, y + 1))))
-	gridAt(x + 1, y)->disconnectWith(gridAt(x, y + 1);
+      if(gridAt(x, y)->isConnected(*gridAt(x + 1, y + 1))
+	&& gridAt(x + 1, y)->isConnected(*gridAt(x, y + 1)))
+	gridAt(x + 1, y)->disconnectWith(gridAt(x, y + 1));
 }
 
