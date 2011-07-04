@@ -1,0 +1,13 @@
+# Objects and libs
+*.[oa]
+
+# KDE backup files
+*~
+
+# KDevelop config files
+.kdev*
+*.kdev4
+
+# Unit test cases
+*.test
+
