@@ -64,7 +64,7 @@ void Network::registerEdge(Edge *e) {
 }
 
 void Network::unregisterVertex(Vertex *v) {
-    for(int i=0; i<_vertexes.size(); i++)
+    for(size_t i=0; i<_vertexes.size(); i++)
         if(v == _vertexes[i])
             _vertexes.erase(_vertexes.begin() + i);
 
@@ -75,7 +75,7 @@ void Network::unregisterVertex(Vertex *v) {
 }
 
 void Network::unregisterEdge(Edge *e) {
-    for(int i=0; i<_edges.size(); i++)
+    for(size_t i=0; i<_edges.size(); i++)
         if(e == _edges[i])
             _edges.erase(_edges.begin() + i);
 }
